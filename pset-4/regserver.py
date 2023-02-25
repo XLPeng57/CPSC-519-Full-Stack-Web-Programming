@@ -17,7 +17,7 @@ df = pd.DataFrame(columns=['crn', 'deptname', 'subject',
 
 def get_request(subject_code, school):
 
-    params = {'apikey': 'xxx',
+    params = {'apikey': 'xxxxxx',
               'subjectCode': subject_code, 'school': school}
     response = requests.get(
         'https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index', params=params)
