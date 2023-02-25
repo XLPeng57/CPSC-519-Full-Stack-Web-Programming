@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Course Detail</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+   </head>
+   <body>
+    {% include 'header.html' %}
+    <h1>Course Detail</h1>
+
+    <table style="width:700px">
+        <tr>
+            <th>Department Name</th>
+            <th>Subject Code</th>
+            <th>Course Number</th>
+        </tr>
+        <tr>
+            <td>{{course_detail.get_deptname()}}</td>
+            <td>{{course_detail.get_subjectcode()}}</td>
+            <td>{{course_detail.get_coursenum()}}</td>
+        </tr>
+
+    </table>
+    
+    <br>
+    <br>
+    <form action="edit" method="get">
+        <input type="hidden" name="crn" value="{{course_detail.get_crn()}}">
+        <input type="hidden" name="detail" value="{{course_detail.get_title()}}">
+        <input type="hidden" name="edit_type" value="Title">
+        <input type="submit" value="Edit">
+    </form>
+    <table style="width:700px">
+        <tr>
+            <th>Title</th>
+        </tr>
+        <tr>
+            <td>{{course_detail.get_title()}}</td>
+        </tr>
+
+    </table>
+
+    <br>
+    <br>
+    <form action="edit" method="get">
+        <input type="hidden" name="crn" value="{{course_detail.get_crn()}}">
+        <input type="hidden" name="detail" value="{{course_detail.get_descrip()}}">
+        <input type="hidden" name="edit_type" value="Description">
+        <input type="submit" value="Edit">
+    </form>
+    <table style="width:700px">
+        <tr>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{{course_detail.get_descrip()}}</td>
+        </tr>
+
+    </table>
+
+    <br>
+    <br>
+    {% if course_detail.get_prereqs()|length == 0: %}
+                (None)
+    {% else %}
+        <form action="edit" method="get">
+            <input type="hidden" name="crn" value="{{course_detail.get_crn()}}">
+            <input type="hidden" name="detail" value="{{course_detail.get_prereqs()}}">
+            <input type="hidden" name="edit_type" value="Prerequisites">
+            <input type="submit" value="Edit">
+        </form>
+        <table style="width:700px">
+            <tr>
+                <th>Prerequisites</th>
+            </tr>
+
+            {% for prereq in course_detail.get_prereqs(): %}
+                <tr>
+                    <td>{{prereq}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    <br>
+    {% if course_detail.get_sections()|length == 0: %}
+                (None)
+    {% else %}
+        <table style="width:700px">
+            <tr>
+                <th>Section Number</th>
+                <th>CRN</th>
+                <th>meetinginfo</th>
+            </tr>
+
+            {% for prereq in course_detail.get_sections(): %}
+                <tr>
+                    <td>{{prereq[0]}}</td>
+                    <td>{{prereq[1]}}</td>
+                    <td>{{prereq[2]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    <br>
+    {% if course_detail.get_crosslist()|length == 0: %}
+                (None)
+    {% else %}
+        <table style="width:400px">
+            <tr>
+                <th>Subject Code</th>
+                <th>Course Number</th>
+            </tr>
+
+            {% for prereq in course_detail.get_crosslist(): %}
+                <tr>
+                    <td>{{prereq[0]}}</td>
+                    <td>{{prereq[1]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    <br>
+    {% if course_detail.get_profs()|length == 0: %}
+                (None)
+    {% else %}
+        <table style="width:400px">
+            <tr>
+                <th>Professors</th>
+            </tr>
+
+            {% for prereq in course_detail.get_profs(): %}
+                <tr>
+                    <td>{{prereq}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    Click here to do another
+    <a href="search">course search</a>.
+    <br>
+    <br>
+    <br>
+    <br>
+    {% include 'footer.html' %}
+</body>
+</html>
