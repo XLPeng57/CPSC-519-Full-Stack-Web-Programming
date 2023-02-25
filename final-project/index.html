@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mymtb.com</title>
+    </head>
+    <body>
+        <div class="header">
+            {% include 'header.html' %}
+        </div>
+        <div class ="label">
+        <form action="search" method="get">
+            <br>
+            Department: <input type="text" name="Department" value ={{department}}>
+            Course Number: <input type="text" name="Course Number" value ={{coursenum}}>
+            Subject: <input type="text" name="Subject" value ={{subject}}>
+            Title: <input type="text" name="Title" value ={{title}}>
+            <input type="submit" value="Search">
+            <br>
+            
+        </form>
+    </div>
+        <div class="footer">
+            {% include 'footer.html' %}
+        </div>
+        
+    </body>
+<script>
+
+function setup() {
+    $('body').on('click', 'tr', function() {
+               $('tbody tr').removeClass('selected');
+               $(this).addClass('selected');
+
+    });
+}
+
+$('document').ready(setup);
+</script>
+
+
+</html>

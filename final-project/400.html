@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mymtb.com</title>
+    </head>
+    <body>
+        {% include 'header.html' %}
+        <h3 style="color: #ff3333;"> {{ error_msg }} </h3>
+        <a href={{ url_for('search_form') }}> Go Back to Search </a>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+body {
+    margin:20px;
+    padding:20px;
+}
+
+th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th {
+    background-color: #0c386b;
+    color: white;
+}
+td{
+    background-color: #4447e9;
+    color: white;
+}
+
+tr:hover {
+    background-color: lightgray;
+}
+
+table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    font-family: Monaco;
+    font-size: 15px;
+}
+
+h3 {
+    display: inline-block;
+}
+
+br {
+    font-size: 18px;
+    color: rgb(15, 3, 70);
+}
+.header {
+    background-color:rgb(0,54,107); 
+    text-align:center;
+    padding: 5px;
+    color:rgb(177, 224, 228);
+}
+
+.logo {
+    font-size: 57px;
+    color: white;
+}
+
+.footer {
+    background-color:#0d113f; 
+    text-align:center;
+    padding: 5px;
+    color:rgb(177, 224, 228);
+}
+
+input[type=text] {
+    background-color: rgb(200,200,200);
+    color: #21066b;
+    font-family: Monaco;
+    font-size: 15px;
+  }
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #21066b;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Monaco;
+    font-size: 15px;
+  }
+  
+
+div.searchbar>input[type="text"] {
+    font-size:14px;
+    border: 1px solid #b8b51b;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+table tr td {
+    padding: 5px;
+}
+
+table tr td:not(:last-child) {
+    padding-right: 25px;
+}
+
+.dataTables_wrapper { 
+    font-family: Monaco;
+    font-size: 15px;
+}
+
+.grayborder {border-style:solid; border-color:gray; border-width:1px;}
